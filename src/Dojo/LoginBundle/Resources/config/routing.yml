@@ -1,0 +1,3 @@
+dojo_login_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: DojoLoginBundle:Default:index }
