@@ -1,3 +1,7 @@
-dojo_login_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: DojoLoginBundle:Default:index }
+dojo_login:
+    path:     /login
+    defaults: { _controller: DojoLoginBundle:Default:login }
+
+dojo_login_check:
+    path:     /check
+    defaults: { _controller: DojoLoginBundle:Default:check }
