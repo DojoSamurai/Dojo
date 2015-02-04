@@ -1,1 +1,9 @@
-Hello {{ name }}!
+{% if is_granted('ROLE_USUARIO') %} 
+    {% extends "DojoLoginBundle::layout.html.twig" %}    
+    {% block body %} 
+       <div class="container">
+            <h2 class="form-signin-heading">Usuario logueado correctamente!</h2>
+        </div> <!-- /container -->      
+    {% endblock %}
+
+{% endif %}
