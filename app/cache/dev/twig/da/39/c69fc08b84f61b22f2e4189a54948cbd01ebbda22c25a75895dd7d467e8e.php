@@ -46,15 +46,23 @@ class __TwigTemplate_da39c69fc08b84f61b22f2e4189a54948cbd01ebbda22c25a75895dd7d4
     {
         echo "      
    <div class=\"container\">
- 
-        <form class=\"form-signin\" action=\"";
-        // line 11
-        echo $this->env->getExtension('routing')->getPath("dojo_login_check");
+     ";
+        // line 10
+        if ((isset($context["error"]) ? $context["error"] : $this->getContext($context, "error"))) {
+            // line 11
+            echo "        <h2 class=\"form-signin-heading\">";
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["error"]) ? $context["error"] : $this->getContext($context, "error")), "message", array()), "html", null, true);
+            echo "</h2>
+    ";
+        }
+        // line 13
+        echo "        <form class=\"form-signin\" action=\"";
+        echo $this->env->getExtension('routing')->getPath("usuario_login_check");
         echo "\" method=\"post\">
           <h2 class=\"form-signin-heading\">Ingreso de usuarios</h2>
           <label for=\"inputEmail\" class=\"sr-only\">Email</label>
-          <input type=\"email\" class=\"form-control input-lg\" placeholder=\"Email\" id=\"username\" name=\"_username\" value=\"";
-        // line 14
+          <input type=\"name\" class=\"form-control input-lg\" placeholder=\"Email\" id=\"username\" name=\"_username\" value=\"";
+        // line 16
         echo twig_escape_filter($this->env, (isset($context["last_username"]) ? $context["last_username"] : $this->getContext($context, "last_username")), "html", null, true);
         echo "\" required autofocus>
           <label for=\"inputPassword\" class=\"sr-only\">Password</label>
@@ -83,6 +91,6 @@ class __TwigTemplate_da39c69fc08b84f61b22f2e4189a54948cbd01ebbda22c25a75895dd7d4
 
     public function getDebugInfo()
     {
-        return array (  58 => 14,  52 => 11,  45 => 8,  40 => 6,  33 => 4,  30 => 3,);
+        return array (  66 => 16,  59 => 13,  53 => 11,  51 => 10,  45 => 8,  40 => 6,  33 => 4,  30 => 3,);
     }
 }

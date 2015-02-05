@@ -127,14 +127,33 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // dojo_login
-        if ($pathinfo === '/login') {
-            return array (  '_controller' => 'Dojo\\LoginBundle\\Controller\\DefaultController::loginAction',  '_route' => 'dojo_login',);
-        }
+        if (0 === strpos($pathinfo, '/usuarios')) {
+            if (0 === strpos($pathinfo, '/usuarios/log')) {
+                if (0 === strpos($pathinfo, '/usuarios/login')) {
+                    // usuario_login
+                    if ($pathinfo === '/usuarios/login') {
+                        return array (  '_controller' => 'Dojo\\LoginBundle\\Controller\\DefaultController::loginAction',  '_route' => 'usuario_login',);
+                    }
 
-        // dojo_login_check
-        if ($pathinfo === '/check') {
-            return array (  '_controller' => 'Dojo\\LoginBundle\\Controller\\DefaultController::checkAction',  '_route' => 'dojo_login_check',);
+                    // usuario_login_check
+                    if ($pathinfo === '/usuarios/login_check') {
+                        return array('_route' => 'usuario_login_check');
+                    }
+
+                }
+
+                // usuario_logout
+                if ($pathinfo === '/usuarios/logout') {
+                    return array('_route' => 'usuario_logout');
+                }
+
+            }
+
+            // dashboard
+            if ($pathinfo === '/usuarios/dashboard') {
+                return array (  '_controller' => 'Dojo\\LoginBundle\\Controller\\DefaultController::dashboardAction',  '_route' => 'dashboard',);
+            }
+
         }
 
         // homepage

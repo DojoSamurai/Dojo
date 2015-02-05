@@ -1824,7 +1824,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>54d282af21760</argument>
+            <argument>54d3bb1d35efd</argument>
           </service>
         </argument>
       </argument>
@@ -1928,7 +1928,7 @@
       <call method="add">
         <argument type="service">
           <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-            <argument>^/login</argument>
+            <argument>^/usuarios/login</argument>
           </service>
         </argument>
         <argument type="collection">
@@ -1939,18 +1939,19 @@
       <call method="add">
         <argument type="service">
           <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-            <argument>^/dashboard</argument>
+            <argument>^/usuarios/dashboard</argument>
           </service>
         </argument>
         <argument type="collection">
           <argument>ROLE_USUARIO</argument>
+          <argument>ROLE_ADMIN</argument>
         </argument>
         <argument>null</argument>
       </call>
       <call method="add">
         <argument type="service">
           <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-            <argument>^/backend/*</argument>
+            <argument>^/usuarios/backend/*</argument>
           </service>
         </argument>
         <argument type="collection">
@@ -1995,7 +1996,7 @@
       <call method="createUser">
         <argument type="service">
           <service class="Symfony\Component\Security\Core\User\User" public="false">
-            <argument>admin</argument>
+            <argument>admin@admin.com</argument>
             <argument>Eti36Ru/pWG6WfoIPiDFUBxUuyvgMA4L8+LLuGbGyqV9ATuT9brCWPchBqX5vFTF+DgntacecW+sSGD+GZts2A==</argument>
             <argument type="collection">
               <argument>ROLE_ADMIN</argument>
@@ -2129,7 +2130,7 @@
                 <call method="setOptions">
                   <argument type="collection">
                     <argument key="login_path">usuario_login</argument>
-                    <argument key="default_target_path">/dashboard</argument>
+                    <argument key="default_target_path">dashboard</argument>
                     <argument key="always_use_default_target_path">false</argument>
                     <argument key="target_path_parameter">_target_path</argument>
                     <argument key="use_referer">false</argument>
@@ -2225,7 +2226,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>54d282af21760</argument>
+            <argument>54d3bb1d35efd</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -3101,11 +3102,9 @@
     <service id="security.encoder_factory" class="Symfony\Component\Security\Core\Encoder\EncoderFactory">
       <argument type="collection">
         <argument key="Dojo\LoginBundle\Entity\Usuario" type="collection">
-          <argument key="class">%security.encoder.digest.class%</argument>
+          <argument key="class">%security.encoder.plain.class%</argument>
           <argument key="arguments" type="collection">
-            <argument>sha512</argument>
-            <argument>true</argument>
-            <argument>10</argument>
+            <argument>false</argument>
           </argument>
         </argument>
         <argument key="Symfony\Component\Security\Core\User\User" type="collection">

@@ -26,17 +26,8 @@ class DefaultController extends Controller
         ));
     }   
     
-    public function checkAction()
+    public function dashboardAction()
     {
-        $peticion = $this->getRequest();
-        $sesion = $peticion->getSession();
-        $error = $peticion->attributes->get(
-        SecurityContext::AUTHENTICATION_ERROR,
-        $sesion->get(SecurityContext::AUTHENTICATION_ERROR)
-        );
-        return $this->render('DojoLoginBundle:Default:login.html.twig', array(
-        'last_username' => $sesion->get(SecurityContext::LAST_USERNAME),
-        'error' => $error
-        ));
+        return $this->render('DojoLoginBundle:Default:index.html.twig');
     }    
 }

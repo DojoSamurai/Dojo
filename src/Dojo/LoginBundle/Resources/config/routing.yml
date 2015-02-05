@@ -1,7 +1,13 @@
-dojo_login:
-    path:     /login
+usuario_login:
+    path:     /usuarios/login
     defaults: { _controller: DojoLoginBundle:Default:login }
 
-dojo_login_check:
-    path:     /check
-    defaults: { _controller: DojoLoginBundle:Default:check }
+usuario_login_check:
+    pattern: /usuarios/login_check
+    
+usuario_logout:
+    pattern: /usuarios/logout
+    
+dashboard:
+    pattern: /usuarios/dashboard
+    defaults: { _controller: DojoLoginBundle:Default:dashboard }

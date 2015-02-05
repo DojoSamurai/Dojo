@@ -12,7 +12,7 @@ security:
             form_login:
                 login_path: usuario_login
                 check_path: usuario_login_check
-                default_target_path: /dashboard
+                default_target_path: dashboard
             logout:
                 path:       usuario_logout
             remember_me:
@@ -20,9 +20,9 @@ security:
                 lifetime:   604800  # 604.800 = 3.600 * 24 * 7 = 1 semana                 
     access_control:
         - { path: ^/,                 roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/login,            roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/dashboard,        roles: ROLE_USUARIO }
-        - { path: ^/backend/*,        roles: ROLE_ADMIN }
+        - { path: ^/usuarios/login,            roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/usuarios/dashboard,        roles: [ROLE_USUARIO,ROLE_ADMIN] }
+        - { path: ^/usuarios/backend/*,        roles: ROLE_ADMIN }
         
     providers:
         usuarios:
@@ -32,10 +32,10 @@ security:
             memory:
                 users:
                     # user = admin, pass = 1234
-                    admin: { password: Eti36Ru/pWG6WfoIPiDFUBxUuyvgMA4L8+LLuGbGyqV9ATuT9brCWPchBqX5vFTF+DgntacecW+sSGD+GZts2A==, roles: ROLE_ADMIN }    
+                    admin@admin.com: { password: Eti36Ru/pWG6WfoIPiDFUBxUuyvgMA4L8+LLuGbGyqV9ATuT9brCWPchBqX5vFTF+DgntacecW+sSGD+GZts2A==, roles: ROLE_ADMIN }    
                     
     encoders:
-        Dojo\LoginBundle\Entity\Usuario: { algorithm: sha512, iterations: 10}
+        Dojo\LoginBundle\Entity\Usuario: plaintext
         Symfony\Component\Security\Core\User\User: sha512
         
 
