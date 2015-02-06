@@ -127,6 +127,19 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        if (0 === strpos($pathinfo, '/hello')) {
+            // dojo_frontend_homepage
+            if (preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'dojo_frontend_homepage')), array (  '_controller' => 'Dojo\\FrontendBundle\\Controller\\DefaultController::indexAction',));
+            }
+
+            // dojo_backend_homepage
+            if (preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'dojo_backend_homepage')), array (  '_controller' => 'Dojo\\BackendBundle\\Controller\\DefaultController::indexAction',));
+            }
+
+        }
+
         if (0 === strpos($pathinfo, '/usuarios')) {
             if (0 === strpos($pathinfo, '/usuarios/log')) {
                 if (0 === strpos($pathinfo, '/usuarios/login')) {

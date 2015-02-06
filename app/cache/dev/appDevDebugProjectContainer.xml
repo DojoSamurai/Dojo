@@ -18,6 +18,8 @@
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
       <parameter key="AppBundle">AppBundle\AppBundle</parameter>
       <parameter key="DojoLoginBundle">Dojo\LoginBundle\DojoLoginBundle</parameter>
+      <parameter key="DojoBackendBundle">Dojo\BackendBundle\DojoBackendBundle</parameter>
+      <parameter key="DojoFrontendBundle">Dojo\FrontendBundle\DojoFrontendBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="AcmeDemoBundle">Acme\DemoBundle\AcmeDemoBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
@@ -1671,6 +1673,22 @@
         <argument>0</argument>
       </call>
       <call method="addListenerService">
+        <argument>security.interactive_login</argument>
+        <argument type="collection">
+          <argument>login_listener</argument>
+          <argument>onSecurityInteractivelogin</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListenerService">
+        <argument>kernel.response</argument>
+        <argument type="collection">
+          <argument>login_listener</argument>
+          <argument>onKernelResponse</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListenerService">
         <argument>kernel.controller</argument>
         <argument type="collection">
           <argument>acme.demo.listener</argument>
@@ -1824,7 +1842,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>54d3bb1d35efd</argument>
+            <argument>54d4fbfbc2602</argument>
           </service>
         </argument>
       </argument>
@@ -1955,6 +1973,18 @@
           </service>
         </argument>
         <argument type="collection">
+          <argument>ROLE_ADMIN</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+      <call method="add">
+        <argument type="service">
+          <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+            <argument>^/usuarios/*</argument>
+          </service>
+        </argument>
+        <argument type="collection">
+          <argument>ROLE_USUARIO</argument>
           <argument>ROLE_ADMIN</argument>
         </argument>
         <argument>null</argument>
@@ -2226,7 +2256,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>54d3bb1d35efd</argument>
+            <argument>54d4fbfbc2602</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -2665,6 +2695,7 @@
           <call method="setEntityNamespaces">
             <argument type="collection">
               <argument key="DojoLoginBundle">Dojo\LoginBundle\Entity</argument>
+              <argument key="DojoBackendBundle">Dojo\BackendBundle\Entity</argument>
             </argument>
           </call>
           <call method="setMetadataCacheImpl">
@@ -2689,6 +2720,19 @@
                     </service>
                   </argument>
                   <argument>Dojo\LoginBundle\Entity</argument>
+                </call>
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\SimplifiedYamlDriver" public="false">
+                      <argument type="collection">
+                        <argument key="C:\xampp\htdocs\DojoWeb\src\Dojo\BackendBundle\Resources\config\doctrine">Dojo\BackendBundle\Entity</argument>
+                      </argument>
+                      <call method="setGlobalBasename">
+                        <argument>mapping</argument>
+                      </call>
+                    </service>
+                  </argument>
+                  <argument>Dojo\BackendBundle\Entity</argument>
                 </call>
               </service>
             </argument>
@@ -2766,6 +2810,12 @@
       </argument>
       <argument type="service" id="security.authentication.trust_resolver" on-invalid="null"/>
       <argument type="service" id="security.role_hierarchy" on-invalid="null"/>
+    </service>
+    <service id="login_listener" class="Dojo\LoginBundle\Listener\LoginListener">
+      <tag name="kernel.event_listener" event="security.interactive_login"/>
+      <tag name="kernel.event_listener" event="kernel.response"/>
+      <argument type="service" id="security.context"/>
+      <argument type="service" id="router"/>
     </service>
     <service id="data_collector.dump" class="Symfony\Component\HttpKernel\DataCollector\DumpDataCollector">
       <tag name="data_collector" id="dump" template="@Debug/Profiler/dump.html.twig"/>
@@ -3147,6 +3197,14 @@
       <call method="addPath">
         <argument>C:\xampp\htdocs\DojoWeb\src\Dojo\LoginBundle/Resources/views</argument>
         <argument>DojoLogin</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\xampp\htdocs\DojoWeb\src\Dojo\BackendBundle/Resources/views</argument>
+        <argument>DojoBackend</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\xampp\htdocs\DojoWeb\src\Dojo\FrontendBundle/Resources/views</argument>
+        <argument>DojoFrontend</argument>
       </call>
       <call method="addPath">
         <argument>C:\xampp\htdocs\DojoWeb\vendor\symfony\symfony\src\Symfony\Bundle\DebugBundle/Resources/views</argument>

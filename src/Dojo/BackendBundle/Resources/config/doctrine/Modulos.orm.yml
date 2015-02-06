@@ -1,0 +1,19 @@
+Dojo\BackendBundle\Entity\Modulos:
+    type: entity
+    table: null
+    repositoryClass: Dojo\BackendBundle\Entity\ModulosRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nombre:
+            type: string
+            length: '100'
+            column: Nombre
+        asignaturaID:
+            type: integer
+            column: Asignatura_ID
+    lifecycleCallbacks: {  }

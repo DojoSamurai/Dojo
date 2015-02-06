@@ -1,3 +1,11 @@
+dojo_frontend:
+    resource: "@DojoFrontendBundle/Resources/config/routing.yml"
+    prefix:   /
+
+dojo_backend:
+    resource: "@DojoBackendBundle/Resources/config/routing.yml"
+    prefix:   /
+
 dojo_login:
     resource: "@DojoLoginBundle/Resources/config/routing.yml"
     prefix:   /

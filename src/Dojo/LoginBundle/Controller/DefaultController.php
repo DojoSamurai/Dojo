@@ -28,6 +28,22 @@ class DefaultController extends Controller
     
     public function dashboardAction()
     {
-        return $this->render('DojoLoginBundle:Default:index.html.twig');
+        $usuario = $this->get('security.context')->getToken()->getUser();
+        $nombre = $usuario->getNombre();
+        $idusuario = $usuario->getId();
+        
+        $asignaturas = $this->obtenerAsignaturasPorUsuario($idusuario);
+        
+        return $this->render('DojoFrontendBundle:Default:alumnos.html.twig', array("usuario" =>$nombre, 
+            "asignaturas" => $asignaturas));
     }    
+    
+    protected function obtenerAsignaturasPorUsuario()
+    {
+       // $asignaturas = array("Política y ciudadanía","Informática", "Trabajo y cuidadanía");
+        $asignaturas = $this->getDoctrine()
+        ->getRepository('DojoBackendBundle:Asignaturas')
+        ->findAll();
+        return $asignaturas;
+    }
 }
