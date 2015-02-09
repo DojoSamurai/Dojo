@@ -19,11 +19,10 @@ security:
                 key:        dojo
                 lifetime:   604800  # 604.800 = 3.600 * 24 * 7 = 1 semana                 
     access_control:
-        - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/usuarios/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/usuarios/*, roles: [ROLE_USUARIO,ROLE_ADMIN] }
         - { path: ^/usuarios/dashboard, roles: [ROLE_USUARIO,ROLE_ADMIN] }
         - { path: ^/usuarios/backend/*, roles: ROLE_ADMIN }
-        - { path: ^/usuarios/*, roles: [ROLE_USUARIO,ROLE_ADMIN] }
         
     providers:
         usuarios:
