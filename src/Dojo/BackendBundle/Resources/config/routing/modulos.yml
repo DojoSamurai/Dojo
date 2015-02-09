@@ -1,0 +1,30 @@
+modulos:
+    path:     /
+    defaults: { _controller: "DojoBackendBundle:Modulos:index" }
+
+modulos_show:
+    path:     /{id}/show
+    defaults: { _controller: "DojoBackendBundle:Modulos:show" }
+
+modulos_new:
+    path:     /new
+    defaults: { _controller: "DojoBackendBundle:Modulos:new" }
+
+modulos_create:
+    path:     /create
+    defaults: { _controller: "DojoBackendBundle:Modulos:create" }
+    requirements: { _method: post }
+
+modulos_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "DojoBackendBundle:Modulos:edit" }
+
+modulos_update:
+    path:     /{id}/update
+    defaults: { _controller: "DojoBackendBundle:Modulos:update" }
+    requirements: { _method: post|put }
+
+modulos_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "DojoBackendBundle:Modulos:delete" }
+    requirements: { _method: post|delete }

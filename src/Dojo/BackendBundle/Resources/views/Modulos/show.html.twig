@@ -1,0 +1,36 @@
+{% extends "DojoLoginBundle::layout.html.twig" %}
+
+{% block body -%}
+    <h1>Modulos</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ entity.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Asignatura</th>
+                <td>{{ entity.asignaturaID }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('modulos') }}">
+            Volver a la lista de Módulo
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('modulos_edit', { 'id': entity.id }) }}">
+            Editar
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

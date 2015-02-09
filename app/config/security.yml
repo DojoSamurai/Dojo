@@ -14,7 +14,8 @@ security:
                 check_path: usuario_login_check
                 default_target_path: dashboard
             logout:
-                path:       usuario_logout
+                path: usuario_logout
+                target: dashboard 
             remember_me:
                 key:        dojo
                 lifetime:   604800  # 604.800 = 3.600 * 24 * 7 = 1 semana                 

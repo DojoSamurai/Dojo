@@ -1,3 +1,7 @@
+dojo_login_usuario:
+    resource: "@DojoLoginBundle/Resources/config/routing/usuario.yml"
+    prefix:   /usuario
+
 usuario_login:
     path:     /usuarios/login
     defaults: { _controller: DojoLoginBundle:Default:login }

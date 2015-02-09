@@ -1,0 +1,43 @@
+{% extends "DojoLoginBundle::layout.html.twig" %}
+
+{% block body -%}
+    <h1>Modulos list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Asignatura</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('modulos_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.nombre }}</td>
+                <td>{{ entity.asignaturaID }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('modulos_show', { 'id': entity.id }) }}">Ver</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('modulos_edit', { 'id': entity.id }) }}">Editar</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('modulos_new') }}">
+                Crear un nuevo módulo
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

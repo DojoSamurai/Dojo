@@ -13,7 +13,7 @@ class __TwigTemplate_31d336f3c50e8ba757657807ea9a7bc202db62b96a4fe853ca2ad57949f
             'mensajes' => array($this, 'block_mensajes'),
             'alertas' => array($this, 'block_alertas'),
             'usuario' => array($this, 'block_usuario'),
-            'menulateral' => array($this, 'block_menulateral'),
+            'itemsmenulateral' => array($this, 'block_itemsmenulateral'),
             'indice' => array($this, 'block_indice'),
             'contenido' => array($this, 'block_contenido'),
         );
@@ -97,7 +97,7 @@ class __TwigTemplate_31d336f3c50e8ba757657807ea9a7bc202db62b96a4fe853ca2ad57949f
     }
 
     // line 58
-    public function block_menulateral($context, array $blocks = array())
+    public function block_itemsmenulateral($context, array $blocks = array())
     {
         // line 59
         echo "<li>
