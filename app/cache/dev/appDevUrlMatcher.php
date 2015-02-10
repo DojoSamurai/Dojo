@@ -252,11 +252,6 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // dojo_backend_homepage
-        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'dojo_backend_homepage')), array (  '_controller' => 'Dojo\\BackendBundle\\Controller\\DefaultController::indexAction',));
-        }
-
         if (0 === strpos($pathinfo, '/usuario')) {
             // usuario
             if (rtrim($pathinfo, '/') === '/usuario') {

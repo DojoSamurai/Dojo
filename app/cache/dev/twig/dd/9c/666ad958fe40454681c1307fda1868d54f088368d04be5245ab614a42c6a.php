@@ -11,6 +11,7 @@ class __TwigTemplate_dd9c666ad958fe40454681c1307fda1868d54f088368d04be5245ab614a
 
         $this->blocks = array(
             'body' => array($this, 'block_body'),
+            'itemsmenulateral' => array($this, 'block_itemsmenulateral'),
         );
     }
 
@@ -28,7 +29,7 @@ class __TwigTemplate_dd9c666ad958fe40454681c1307fda1868d54f088368d04be5245ab614a
     public function block_body($context, array $blocks = array())
     {
         // line 4
-        echo "<h1>Asignaturas list</h1>
+        echo "<h1>Listado de Asignaturas</h1>
 
     <table class=\"records_list\">
         <thead>
@@ -67,13 +68,11 @@ class __TwigTemplate_dd9c666ad958fe40454681c1307fda1868d54f088368d04be5245ab614a
                         <a href=\"";
             // line 24
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("asignaturas_show", array("id" => $this->getAttribute($context["entity"], "id", array()))), "html", null, true);
-            echo "\">Ver</a>
-                    </li>
-                    <li>
+            echo "\"><i class=\"fa fa-fw fa-pencil-square-o\"></i></a>
                         <a href=\"";
-            // line 27
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("asignaturas_edit", array("id" => $this->getAttribute($context["entity"], "id", array()))), "html", null, true);
-            echo "\">Editar</a>
+            // line 25
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("asignaturas_delete", array("id" => $this->getAttribute($context["entity"], "id", array()))), "html", null, true);
+            echo "\"><i class=\"fa fa-fw fa-trash-o\"></i></a>
                     </li>
                 </ul>
                 </td>
@@ -83,21 +82,23 @@ class __TwigTemplate_dd9c666ad958fe40454681c1307fda1868d54f088368d04be5245ab614a
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['entity'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 33
+        // line 31
         echo "        </tbody>
     </table>
+";
+    }
 
-        <ul>
-        <li>
-            <a href=\"";
-        // line 38
+    // line 35
+    public function block_itemsmenulateral($context, array $blocks = array())
+    {
+        // line 36
+        echo "<li>
+    <a href=\"";
+        // line 37
         echo $this->env->getExtension('routing')->getPath("asignaturas_new");
-        echo "\">
-                Nueva asignatura
-            </a>
-        </li>
-    </ul>
-    ";
+        echo "\"><i class=\"fa fa-fw fa-plus-square \"></i> Crear nueva</a>
+</li>
+";
     }
 
     public function getTemplateName()
@@ -112,6 +113,6 @@ class __TwigTemplate_dd9c666ad958fe40454681c1307fda1868d54f088368d04be5245ab614a
 
     public function getDebugInfo()
     {
-        return array (  94 => 38,  87 => 33,  75 => 27,  69 => 24,  62 => 20,  58 => 19,  52 => 18,  49 => 17,  45 => 16,  31 => 4,  28 => 3,);
+        return array (  98 => 37,  95 => 36,  92 => 35,  86 => 31,  74 => 25,  70 => 24,  63 => 20,  59 => 19,  53 => 18,  50 => 17,  46 => 16,  32 => 4,  29 => 3,);
     }
 }

@@ -38,13 +38,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Dojo!</a>
+                <a class="navbar-brand" href="{{ path('usuario_login') }}">Dojo!</a>
             </div>
             <!-- Top Menu Items -->
             {% block menusuperior %}
             <ul class="nav navbar-right top-nav">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <span class="badge">{% block contadormensajes %}3{% endblock %}</span> <b class="caret"></b></a>
                     <ul class="dropdown-menu message-dropdown">
 			{% block mensajes %}
 			{% endblock %}
@@ -68,10 +68,10 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {% block usuario %}{% endblock %}<b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Datos personales</a>
+                            <a href="#"><i class="fa fa-fw fa-user"></i> Mis datos</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-gear"></i> Configuraciones</a>
+                            <a href="#"><i class="fa fa-fw fa-gear"></i> Configurar</a>
                         </li>
                         <li class="divider"></li>
                         <li>

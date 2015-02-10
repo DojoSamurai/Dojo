@@ -62,7 +62,7 @@ class __TwigTemplate_da39c69fc08b84f61b22f2e4189a54948cbd01ebbda22c25a75895dd7d4
         // line 16
         if ((isset($context["error"]) ? $context["error"] : $this->getContext($context, "error"))) {
             // line 17
-            echo "            <h6 class=\"leyenda-error\">Los datos ingresados no son válidos!</h6>
+            echo "            <div class=\"alert alert-danger\">Los datos ingresados no son válidos!</div>    
             ";
         }
         // line 19

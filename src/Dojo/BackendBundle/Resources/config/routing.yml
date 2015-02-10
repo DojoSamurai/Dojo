@@ -5,7 +5,3 @@ dojo_backend_asignaturas:
 dojo_backend_modulos:
     resource: "@DojoBackendBundle/Resources/config/routing/modulos.yml"
     prefix:   /modulos
-
-dojo_backend_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: DojoBackendBundle:Default:index }

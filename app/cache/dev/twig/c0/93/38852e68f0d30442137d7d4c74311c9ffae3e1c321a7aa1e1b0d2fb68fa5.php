@@ -27,77 +27,81 @@ class __TwigTemplate_c09338852e68f0d30442137d7d4c74311c9ffae3e1c321a7aa1e1b0d2fb
     // line 3
     public function block_body($context, array $blocks = array())
     {
-        // line 4
-        echo "<h1>Modulos list</h1>
-
-    <table class=\"records_list\">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Asignatura</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-        ";
-        // line 16
+        // line 5
+        echo "<div class=\"panel panel-default\">
+  <div class=\"panel-heading\">
+    <h3 class=\"panel-title\">Listado de Módulos</h3>
+  </div>
+  <div class=\"panel-body\">
+    <div class=\"table-responsive\">
+        <table class=\"table\">
+            <thead>
+                <tr>
+                    <th>Codigo</th>
+                    <th>Nombre</th>
+                    <th>Asignatura</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            ";
+        // line 21
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["entities"]) ? $context["entities"] : $this->getContext($context, "entities")));
         foreach ($context['_seq'] as $context["_key"] => $context["entity"]) {
-            // line 17
-            echo "            <tr>
-                <td><a href=\"";
-            // line 18
+            // line 22
+            echo "                <tr>
+                    <td><a href=\"";
+            // line 23
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("modulos_show", array("id" => $this->getAttribute($context["entity"], "id", array()))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "id", array()), "html", null, true);
             echo "</a></td>
-                <td>";
-            // line 19
+                    <td>";
+            // line 24
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "nombre", array()), "html", null, true);
             echo "</td>
-                <td>";
-            // line 20
+                    <td>";
+            // line 25
             echo twig_escape_filter($this->env, $this->getAttribute($context["entity"], "asignaturaID", array()), "html", null, true);
             echo "</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href=\"";
-            // line 24
+                    <td>
+                    <ul>
+                        <li>
+                            <a href=\"";
+            // line 29
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("modulos_show", array("id" => $this->getAttribute($context["entity"], "id", array()))), "html", null, true);
             echo "\">Ver</a>
-                    </li>
-                    <li>
-                        <a href=\"";
-            // line 27
+                        </li>
+                        <li>
+                            <a href=\"";
+            // line 32
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("modulos_edit", array("id" => $this->getAttribute($context["entity"], "id", array()))), "html", null, true);
             echo "\">Editar</a>
-                    </li>
-                </ul>
-                </td>
-            </tr>
-        ";
+                        </li>
+                    </ul>
+                    </td>
+                </tr>
+            ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['entity'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 33
-        echo "        </tbody>
-    </table>
-
-        <ul>
-        <li>
-            <a href=\"";
         // line 38
+        echo "            </tbody>
+        </table>
+    </div>  
+  </div>            
+</div>               
+<div class=\"btn-group btn-group-lg\">
+            Crear un nuevo Módulo
+    <a href=\"";
+        // line 45
         echo $this->env->getExtension('routing')->getPath("modulos_new");
         echo "\">
-                Crear un nuevo módulo
-            </a>
-        </li>
-    </ul>
-    ";
+    </a>
+</div>
+";
     }
 
     public function getTemplateName()
@@ -112,6 +116,6 @@ class __TwigTemplate_c09338852e68f0d30442137d7d4c74311c9ffae3e1c321a7aa1e1b0d2fb
 
     public function getDebugInfo()
     {
-        return array (  94 => 38,  87 => 33,  75 => 27,  69 => 24,  62 => 20,  58 => 19,  52 => 18,  49 => 17,  45 => 16,  31 => 4,  28 => 3,);
+        return array (  100 => 45,  91 => 38,  79 => 32,  73 => 29,  66 => 25,  62 => 24,  56 => 23,  53 => 22,  49 => 21,  31 => 5,  28 => 3,);
     }
 }
