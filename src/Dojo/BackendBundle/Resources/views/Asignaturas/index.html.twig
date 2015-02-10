@@ -1,7 +1,7 @@
 {% extends "DojoLoginBundle::layout.html.twig" %}
 
 {% block body -%}
-    <h1>Asignaturas list</h1>
+    <h1>Listado de Asignaturas</h1>
 
     <table class="records_list">
         <thead>
@@ -21,10 +21,8 @@
                 <td>
                 <ul>
                     <li>
-                        <a href="{{ path('asignaturas_show', { 'id': entity.id }) }}">Ver</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('asignaturas_edit', { 'id': entity.id }) }}">Editar</a>
+                        <a href="{{ path('asignaturas_show', { 'id': entity.id }) }}"><i class="fa fa-fw fa-pencil-square-o"></i></a>
+                        <a href="{{ path('asignaturas_delete', { 'id': entity.id }) }}"><i class="fa fa-fw fa-trash-o"></i></a>
                     </li>
                 </ul>
                 </td>
@@ -32,12 +30,10 @@
         {% endfor %}
         </tbody>
     </table>
+{% endblock %}
 
-        <ul>
-        <li>
-            <a href="{{ path('asignaturas_new') }}">
-                Nueva asignatura
-            </a>
-        </li>
-    </ul>
-    {% endblock %}
+{% block itemsmenulateral %}
+<li>
+    <a href="{{ path('asignaturas_new') }}"><i class="fa fa-fw fa-plus-square "></i> Crear nueva</a>
+</li>
+{% endblock %}

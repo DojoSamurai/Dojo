@@ -158,3 +158,8 @@ eb8386,::1,GET,http://localhost:90/DojoWeb/web/app_dev.php/asignaturas/,14235069
 9c5059,::1,GET,http://localhost:90/DojoWeb/web/app_dev.php/asignaturas/new,1423508608,
 9434ec,::1,POST,http://localhost:90/DojoWeb/web/app_dev.php/asignaturas/create,1423508627,
 c187c6,::1,GET,http://localhost:90/DojoWeb/web/app_dev.php/asignaturas/1/show,1423508628,
+f8ee8c,::1,GET,http://localhost/dojoweb/dojo/web/app_dev.php/asignaturas,1423531232,
+16d882,::1,GET,http://localhost/dojoweb/dojo/web/app_dev.php/asignaturas/,1423531235,
+5dd092,::1,GET,http://localhost/dojoweb/dojo/web/app_dev.php/asignaturas/,1423531764,
+7c7ebc,::1,GET,http://localhost/dojoweb/dojo/web/app_dev.php/asignaturas/,1423531905,
+d0b240,::1,GET,http://localhost/dojoweb/dojo/web/app_dev.php/asignaturas/,1423532113,
