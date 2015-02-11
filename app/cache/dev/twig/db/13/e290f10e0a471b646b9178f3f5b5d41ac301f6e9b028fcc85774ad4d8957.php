@@ -13,6 +13,7 @@ class __TwigTemplate_db13e290f10e0a471b646b9178f3f5b5d41ac301f6e9b028fcc85774ad4
             'estilos' => array($this, 'block_estilos'),
             'barranavegacion' => array($this, 'block_barranavegacion'),
             'menusuperior' => array($this, 'block_menusuperior'),
+            'contadormensajes' => array($this, 'block_contadormensajes'),
             'mensajes' => array($this, 'block_mensajes'),
             'alertas' => array($this, 'block_alertas'),
             'usuario' => array($this, 'block_usuario'),
@@ -130,7 +131,10 @@ class __TwigTemplate_db13e290f10e0a471b646b9178f3f5b5d41ac301f6e9b028fcc85774ad4
                     <span class=\"icon-bar\"></span>
                     <span class=\"icon-bar\"></span>
                 </button>
-                <a class=\"navbar-brand\" href=\"index.html\">Dojo!</a>
+                <a class=\"navbar-brand\" href=\"";
+        // line 41
+        echo $this->env->getExtension('routing')->getPath("usuario_login");
+        echo "\">Dojo!</a>
             </div>
             <!-- Top Menu Items -->
             ";
@@ -153,7 +157,10 @@ class __TwigTemplate_db13e290f10e0a471b646b9178f3f5b5d41ac301f6e9b028fcc85774ad4
         // line 45
         echo "            <ul class=\"nav navbar-right top-nav\">
                 <li class=\"dropdown\">
-                    <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-envelope\"></i> <b class=\"caret\"></b></a>
+                    <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-envelope\"></i> <span class=\"label label-danger label-as-badge\">";
+        // line 47
+        $this->displayBlock('contadormensajes', $context, $blocks);
+        echo "</span> <b class=\"caret\"></b></a>
                     <ul class=\"dropdown-menu message-dropdown\">
 \t\t\t";
         // line 49
@@ -184,10 +191,10 @@ class __TwigTemplate_db13e290f10e0a471b646b9178f3f5b5d41ac301f6e9b028fcc85774ad4
         echo "<b class=\"caret\"></b></a>
                     <ul class=\"dropdown-menu\">
                         <li>
-                            <a href=\"#\"><i class=\"fa fa-fw fa-user\"></i> Datos personales</a>
+                            <a href=\"#\"><i class=\"fa fa-fw fa-user\"></i> Mis datos</a>
                         </li>
                         <li>
-                            <a href=\"#\"><i class=\"fa fa-fw fa-gear\"></i> Configuraciones</a>
+                            <a href=\"#\"><i class=\"fa fa-fw fa-gear\"></i> Configurar</a>
                         </li>
                         <li class=\"divider\"></li>
                         <li>
@@ -200,6 +207,12 @@ class __TwigTemplate_db13e290f10e0a471b646b9178f3f5b5d41ac301f6e9b028fcc85774ad4
                 </li>
             </ul>
             ";
+    }
+
+    // line 47
+    public function block_contadormensajes($context, array $blocks = array())
+    {
+        echo "3";
     }
 
     // line 49
@@ -283,6 +296,6 @@ class __TwigTemplate_db13e290f10e0a471b646b9178f3f5b5d41ac301f6e9b028fcc85774ad4
 
     public function getDebugInfo()
     {
-        return array (  271 => 109,  268 => 108,  264 => 97,  261 => 96,  256 => 98,  254 => 96,  251 => 95,  248 => 94,  244 => 88,  241 => 87,  234 => 88,  232 => 87,  228 => 85,  225 => 84,  220 => 68,  216 => 60,  213 => 59,  209 => 50,  206 => 49,  196 => 78,  183 => 68,  174 => 61,  172 => 59,  162 => 51,  160 => 49,  154 => 45,  151 => 44,  145 => 91,  143 => 84,  140 => 83,  138 => 44,  124 => 32,  121 => 31,  117 => 17,  114 => 16,  107 => 110,  105 => 108,  101 => 107,  97 => 106,  93 => 105,  89 => 104,  85 => 103,  80 => 100,  77 => 94,  75 => 31,  58 => 18,  56 => 16,  52 => 15,  48 => 14,  44 => 13,  30 => 1,);
+        return array (  284 => 109,  281 => 108,  277 => 97,  274 => 96,  269 => 98,  267 => 96,  264 => 95,  261 => 94,  257 => 88,  254 => 87,  247 => 88,  245 => 87,  241 => 85,  238 => 84,  233 => 68,  229 => 60,  226 => 59,  222 => 50,  219 => 49,  213 => 47,  203 => 78,  190 => 68,  181 => 61,  179 => 59,  169 => 51,  167 => 49,  162 => 47,  158 => 45,  155 => 44,  149 => 91,  147 => 84,  144 => 83,  142 => 44,  136 => 41,  125 => 32,  122 => 31,  118 => 17,  115 => 16,  108 => 110,  106 => 108,  102 => 107,  98 => 106,  94 => 105,  90 => 104,  86 => 103,  81 => 100,  78 => 94,  76 => 31,  59 => 18,  57 => 16,  53 => 15,  49 => 14,  45 => 13,  31 => 1,);
     }
 }

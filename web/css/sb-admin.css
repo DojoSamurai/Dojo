@@ -32,6 +32,18 @@ body {
     line-height: normal;
 }
 
+.label-as-badge {
+    border-radius: 1em;
+}
+
+.navbar-inverse{
+    font-size: 20px;
+}
+
+.navbar-right{
+    font-size: 16px;
+}
+
 @media(min-width:768px) {
     #wrapper {
         padding-left: 225px;
