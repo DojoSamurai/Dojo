@@ -1,0 +1,17 @@
+Dojo\BackendBundle\Entity\Modulo_Asignatura:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        moduloId:
+            type: integer
+            column: modulo_id
+        asignaturaId:
+            type: integer
+            column: asignatura_id
+    lifecycleCallbacks: {  }

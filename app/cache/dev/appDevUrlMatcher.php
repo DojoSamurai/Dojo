@@ -315,7 +315,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     if (0 === strpos($pathinfo, '/usuarios/login')) {
                         // usuario_login
                         if ($pathinfo === '/usuarios/login') {
-                            return array (  '_controller' => 'Dojo\\LoginBundle\\Controller\\DefaultController::loginAction',  '_route' => 'usuario_login',);
+                            return array (  '_controller' => 'DojoLoginBundle::login',  '_route' => 'usuario_login',);
                         }
 
                         // usuario_login_check

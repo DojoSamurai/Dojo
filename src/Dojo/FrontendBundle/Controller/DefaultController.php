@@ -10,4 +10,14 @@ class DefaultController extends Controller
     {
         return $this->render('DojoFrontendBundle:Default:index.html.twig', array('name' => $name));
     }
+    
+      public function alumnosAction()
+    {
+        $idAlumno = app.usuario.Id;
+        $asignaturas = $this->getDoctrine()
+        ->getRepository('DojoBackendBundle:Asignaturas')
+        ->BuscarAsignaturasParaAlumno($idAlumno);
+        return $this->render('DojoFrontendBundle::alumnos.html.twig', array('asignaturas' => $asignaturas));
+    }
+      
 }
