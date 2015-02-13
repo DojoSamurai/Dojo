@@ -38,12 +38,11 @@ class DefaultController extends Controller
             "asignaturas" => $asignaturas));
     }    
     
-    protected function obtenerAsignaturasPorUsuario()
+    protected function obtenerAsignaturasPorUsuario($idusuario)
     {
-       // $asignaturas = array("Política y ciudadanía","Informática", "Trabajo y cuidadanía");
         $asignaturas = $this->getDoctrine()
         ->getRepository('DojoBackendBundle:Asignaturas')
-        ->findAll();
+        ->buscarAsignaturasParaAlumno($idusuario);
         return $asignaturas;
     }
 }

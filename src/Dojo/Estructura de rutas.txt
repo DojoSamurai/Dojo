@@ -1,16 +1,18 @@
 *** FRONTEND ***
 usuarios\login				(ventana de login de usuarios)
-usuarios\dashboard		(panel principal de alumnos y docentes)
+alumnos\dashboard		(panel principal de alumnos)
+docentes\dashboard    (     "  			"		 "  docentes)
+admin\dashboard     	(     "  			"		 "  administradores)
+rl\dashboard					(panel para representantes legales)
+owner\dashboard			(panel de administración del sitio para Owner)
 
 *** BACKEND ***				
 							ABMS
-adm\abm\usuarios
-adm\abm\asignaturas
-adm\abm\modulos
-adm\abm\docentes		
+admin\abm\usuarios
+admin\abm\asignaturas
+admin\abm\modulos
+admin\abm\docentes		
 
-rl\dashboard					(panel para representantes legales)
 rl\calculoant					(herramienta para el calculo de antigüedad)
 
 *** INTRANET ***
-intranet\dashboard							(panel de administración del sitio para Owner)

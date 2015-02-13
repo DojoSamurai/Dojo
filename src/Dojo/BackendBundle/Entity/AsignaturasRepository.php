@@ -12,13 +12,13 @@ use Doctrine\ORM\EntityRepository;
  */
 class AsignaturasRepository extends EntityRepository
 {
-    public function BuscarAsignaturasParaAlumno($IdAlumno)
+    public function buscarAsignaturasParaAlumno($IdAlumno)
     {
         
         $em = $this->getDoctrine()->getEntityManager();   
-        $dql = "select asignaturas from DojoBackendBundle:Alumnos_Asignaturas relacion"
-                . " join relacion.asignaturas asignaturas "
-                . " where relacion.alumno := alumno";
+        $dql = "select a from DojoBackendBundle:Alumnos_Asignaturas b"
+                . " join b.asignaturas a "
+                . " where b.alumno := alumno";
           
         $query = $em->createQuery($dql);
         $query->setParameter('alumno', $idAlumno);

@@ -13,18 +13,32 @@ class Alumno_Asignatura
      * @var integer
      */
     private $id;
-
+    
     /**
-     * @var integer
-     */
+     * @ORM\ManyToMany(targetEntity="Usuarios", inversedBy="Alumno_Asignatura")
+     * @JoinTable(name="Alumno_Asignatura",
+     *      joinColumns={@JoinColumn(name="usuario_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@JoinColumn(name="alumno_asignatura_id", referencedColumnName="id")}
+     *      )
+     */    
     private $alumnoId;
 
     /**
-     * @var integer
-     */
+     * @ORM\ManyToMany(targetEntity="Asignaturas", inversedBy="Alumno_Asignatura")
+     * @JoinTable(name="Alumno_Asignatura",
+     *      joinColumns={@JoinColumn(name="asignatura_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@JoinColumn(name="alumno_asignatura_id", referencedColumnName="id")}
+     *      )
+     */    
     private $asignaturaId;
 
 
+    public function __construct()
+    {
+        $this->alumnoId = new ArrayCollection();
+        $this->asignaturaId = new ArrayCollection();
+    }
+    
     /**
      * Get id
      *

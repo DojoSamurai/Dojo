@@ -65,6 +65,11 @@ class Usuario implements UserInterface
      */
     
     private $salt;
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="Alumno_Asignatura", mappedBy="Usuario")
+     */
+    private $alumno_asignatura;    
 
     /**
      * Get id
